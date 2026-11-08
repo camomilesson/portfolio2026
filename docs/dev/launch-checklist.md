@@ -21,7 +21,8 @@ Before launch:
   confirmed. Four supplied screenshots and app icon are integrated.
 - Steam Price Modeling: solo ownership and course context confirmed. Three charts
   exported from recorded notebook tables, with cohort/run distinctions labelled.
-- Provide a contact email and/or LinkedIn; GitHub is the current working contact link.
+- Email and LinkedIn supplied by Andrei and added beside GitHub in the contact
+  section and shared footer.
 - Decide whether to provide a CV and public Android beta download.
 - Vercel address confirmed: https://andrei-romashkov.vercel.app/. Canonical URLs,
   a shared 1200×630 social preview, robots.txt, and a generated sitemap configured.
