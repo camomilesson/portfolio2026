@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://andrei-romashkov.vercel.app/sitemap.xml

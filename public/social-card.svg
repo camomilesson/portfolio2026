@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#ffffff"/>
+<rect x="64" y="62" width="18" height="18" fill="#2449e8"/>
+<text x="100" y="78" font-family="Arial,sans-serif" font-size="17" letter-spacing="3" fill="#606672">SOFTWARE DEVELOPER</text>
+<path d="M64 119H1136" stroke="#15171c"/>
+<g font-family="Arial,sans-serif" font-weight="700" font-size="88" letter-spacing="-4">
+<text x="59" y="253" fill="#15171c">Andrei</text>
+<text x="59" y="351" fill="#2449e8">Romashkov.</text>
+</g>
+<text x="64" y="425" font-family="Arial,sans-serif" font-size="28" fill="#606672">I build web applications, mobile experiences,</text>
+<text x="64" y="466" font-family="Arial,sans-serif" font-size="28" fill="#606672">and AI-powered tools.</text>
+<path d="M64 528H1136" stroke="#dce0e7"/>
+<text x="64" y="572" font-family="Arial,sans-serif" font-size="17" fill="#606672">WEB / MOBILE / AI / GAMES</text>
+<path d="M1054 344L1129 269M1054 269H1129V344" fill="none" stroke="#2449e8" stroke-width="12"/>
+</svg>

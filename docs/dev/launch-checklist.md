@@ -23,7 +23,8 @@ Before launch:
   exported from recorded notebook tables, with cohort/run distinctions labelled.
 - Provide a contact email and/or LinkedIn; GitHub is the current working contact link.
 - Decide whether to provide a CV and public Android beta download.
-- Set the final site URL, canonical metadata, social preview image, and sitemap.
+- Vercel address confirmed: https://andrei-romashkov.vercel.app/. Canonical URLs,
+  a shared 1200×630 social preview, robots.txt, and a generated sitemap configured.
 - Review final media performance and accessibility at desktop and phone sizes.
 - Deploy to Vercel and verify the live site.
 

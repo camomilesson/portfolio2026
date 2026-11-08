@@ -1,7 +1,9 @@
 # Andrei Romashkov — Portfolio
 
 A static portfolio built with Astro, TypeScript, Markdown content collections,
-and custom CSS. This first version is local and has not been deployed.
+and custom CSS.
+
+Live site: https://andrei-romashkov.vercel.app/
 
 ## Development
 
@@ -59,4 +61,5 @@ editorial placeholders, not screenshots.
 Import the GitHub repository into Vercel using its Astro preset. Build command:
 `pnpm build`; output directory: `dist`. No environment variables or server adapter
 are required for this version. Set the canonical site URL and social preview image
-once the deployment address or domain is chosen.
+if the deployment address changes. Canonical URLs, the shared social image,
+`robots.txt`, and a generated sitemap are configured for the current Vercel URL.
