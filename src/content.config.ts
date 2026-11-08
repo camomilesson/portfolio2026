@@ -10,9 +10,13 @@ const projects = defineCollection({
     accent: z.enum(['green', 'ochre', 'blue', 'rose', 'purple']),
     visual: z.string(), image: z.string().optional(), imageAlt: z.string().optional(),
     imageKind: z.enum(['artwork', 'screenshot']).default('artwork'),
+    imageLayout: z.enum(['landscape', 'portrait']).default('landscape'),
+    heroLayout: z.enum(['single', 'screenshot-strip']).default('single'),
+    logo: z.object({ src: z.string(), alt: z.string() }).optional(),
     screenshots: z.array(z.object({
       src: z.string(), alt: z.string(), title: z.string(), caption: z.string(),
       width: z.number(), height: z.number(),
+      layout: z.enum(['landscape', 'portrait']).default('landscape'),
     })).default([]),
     draft: z.boolean().default(false),
   }),

@@ -1,9 +1,10 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-interface Props { project: CollectionEntry<'projects'> }
-const { project: {data: p} } = Astro.props;
+interface Props { project: CollectionEntry<'projects'>; hero?: boolean }
+const { project: {data: p}, hero = false } = Astro.props;
+const strip = hero && p.heroLayout === 'screenshot-strip' && p.screenshots.length > 0;
 ---
-<div class:list={['project-visual', p.accent, { screenshot: p.image && p.imageKind === 'screenshot' }]}>
-{p.image ? <img src={p.image} alt={p.imageAlt ?? p.title} loading="lazy" /> : <div class="visual-type" aria-hidden="true"><span class="visual-kicker">{p.category}</span><span class="visual-title">{p.visual}</span><span class="visual-rule"></span><span class="visual-caption">{p.technologies.slice(0, 2).join(' / ')}</span></div>}
+<div class:list={['project-visual', p.accent, { 'screenshot-strip': strip, screenshot: !strip && p.image && p.imageKind === 'screenshot', portrait: !strip && p.imageLayout === 'portrait' }]}>
+{strip ? p.screenshots.map(shot => <img src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} decoding="async" />) : p.image ? <img src={p.image} alt={p.imageAlt ?? p.title} loading="lazy" /> : <div class="visual-type" aria-hidden="true"><span class="visual-kicker">{p.category}</span><span class="visual-title">{p.visual}</span><span class="visual-rule"></span><span class="visual-caption">{p.technologies.slice(0, 2).join(' / ')}</span></div>}
 {p.imageKind !== 'screenshot' && <span class="visual-note">{p.image ? 'Project artwork' : 'Project preview · imagery to follow'}</span>}
 </div>

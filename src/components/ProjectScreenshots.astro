@@ -16,8 +16,9 @@ const { screenshots } = Astro.props;
         <h2 id="screenshots-heading">A closer look.</h2>
       </div>
     </div>
+    <div class="screenshot-grid">
     {screenshots.map((shot, index) => (
-      <figure class="product-shot">
+      <figure class:list={['product-shot', { 'portrait-shot': shot.layout === 'portrait' }]}>
         <figcaption>
           <span class="project-number">{String(index + 1).padStart(2, '0')}</span>
           <div>
@@ -37,5 +38,6 @@ const { screenshots } = Astro.props;
         </div>
       </figure>
     ))}
+    </div>
   </section>
 )}

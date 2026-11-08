@@ -32,7 +32,12 @@ Optional `image` and `imageAlt` fields replace the typographic preview with proj
 artwork. Put images under `public/images/`; use optimized exports, not raw captures.
 Set `imageKind: screenshot` to show a complete screenshot without artwork styling.
 Optional `screenshots` entries (src, alt, title, caption, width, height) add a static
-product gallery below the case study. An optional `live` field adds a website link. Omit unavailable links.
+product gallery below the case study. Set `imageLayout: portrait` for a phone screenshot. Each gallery entry can also
+set `layout: portrait` to display phone captures in a two-column gallery.
+
+An optional `logo` object with `src` and `alt` displays a project logo beside its
+title in listing cards and the project header. Omit it for projects without a logo.
+An optional `live` field adds a website link. Omit unavailable links.
 
 ## Structure
 

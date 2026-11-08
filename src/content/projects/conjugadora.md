@@ -2,7 +2,7 @@
 title: "Conjugadora"
 summary: "A Spanish conjugation app built around the way you want to practise."
 category: "Web application"
-technologies: ["React", "TypeScript", "Supabase"]
+technologies: ["React", "TypeScript", "Vite", "Supabase", "PostgreSQL"]
 featured: true
 order: 1
 source: "https://github.com/camomilesson/website-to-conjugate-verbs"
@@ -13,6 +13,9 @@ visual: "Practica.\nRepite. Aprende."
 image: "/images/conjugadora/home.webp"
 imageAlt: "Conjugadora practice home with multiple-choice and typing modes and a summary of the current setup."
 imageKind: "screenshot"
+logo:
+  src: "/images/conjugadora/logo.webp"
+  alt: "Conjugadora logo"
 screenshots:
   - src: "/images/conjugadora/progress.webp"
     alt: "Progress table showing accuracy by Spanish verb and tense, with search, mode filters, and column controls."
@@ -35,32 +38,42 @@ screenshots:
 draft: false
 ---
 
-## Why I built it
+## The idea
 
-Conjugadora started as a project for my JavaScript and TypeScript course. The assignment called for something basic, but I wanted to build a complete product.
+I built Conjugadora as a solo project for a three-week JavaScript and TypeScript course. I was learning Spanish and wanted better conjugation practice, so I turned the assignment into something I’d use myself. The course allowed AI-assisted development, which helped me take it beyond a basic prototype.
 
-I’m learning Spanish and nearly finished Duolingo’s English-to-Spanish course, but I still needed more conjugation practice. The tools I found were either frustrating to use or buried behind paywalls. So I built something I’d actually want to use—and made it my course project.
+## Frontend and architecture
 
-## How I built it
+The app uses **React, TypeScript, Vite, and plain CSS**, with React Router handling navigation. Features keep their components, styles, tests, and documentation together behind public entry points.
 
-This was a solo project for a three-week course. AI-assisted development was allowed, and I used it to help turn the idea into a usable product within that time, with working features beyond the basic practice screen.
+Question generation and answer checking are separate from React and network code. That keeps the practice rules testable without rendering the interface or connecting to the backend.
 
-## What I’m proud of
+## Practice data and answer checking
 
-### Seeing where you struggle
+A separate **pnpm workspace package** contains the catalogue of 100 verbs and 16 practice categories. Conjugations come from versioned JSON files, with the catalogue loaded first and individual verb files loaded as needed.
 
-The progress view helps you spot the verbs and tenses you’re getting wrong, so you can see what needs more practice. It breaks down accuracy by verb and tense and shows how many answers each result is based on.
+Questions are shuffled without replacement. Typed answers support accepted alternatives and configurable accent handling; multiple-choice options match the verb and grammatical person. The app validates catalogue IDs and dataset versions before use.
 
-### Making practice work for you
+## Accounts and persistence
 
-You can choose the verbs, tense categories, grammatical persons, and number of questions you want to practise. You can type answers or use multiple choice, and choose how strictly accents are checked. That flexibility lets you focus on what you need and practise in a way that suits you.
+**Supabase Auth** handles Google sign-in. **PostgreSQL** stores account preferences, progress, and completed practice history, with row-level security restricting access to each user’s data. Database functions group related updates into atomic operations.
 
-## Under the hood
+Signed-in answers update progress as they are saved. Only completed practices appear in History. If a submission fails, the app offers a retry with the same answer identifier to avoid counting it twice.
 
-React and TypeScript power the interface, with Vite handling the build. The verb catalogue lives in a separate workspace package, while answer checking and question generation stay independent of the interface and network clients.
+Guests can practise without an account. Their settings stay in the browser, while their answers and results stay in memory. Account deletion runs through a **Supabase Edge Function**, keeping privileged credentials on the server.
 
-Supabase handles Google sign-in and saved account data. Guests can practise without an account; signing in adds saved preferences, progress, and practice history.
+## Progress and customization
 
-## Where it stands
+These are the two features I’m most proud of. The progress matrix breaks accuracy down by verb and tense, with search, sorting, filters, and keyboard navigation. Overall accuracy uses total correct answers divided by total attempts, and each cell exposes its sample size.
 
-The app supports both practice modes, custom practice settings, progress tracking, and history. Desktop is the current focus. Mobile polish, resumable practice, and spaced repetition are possible next steps, rather than features it already has.
+Practice settings cover verbs, categories, grammatical persons, question count, answer mode, and accent handling. Saved preferences let people return to a setup that works for them.
+
+## Testing and delivery
+
+**Node’s test runner** covers practice logic, catalogue data, repositories, and the account-deletion handler. **GitHub Actions** runs TypeScript, ESLint, formatting checks, tests, ordered builds, and a production artifact audit for relevant code changes.
+
+**Nx** ensures catalogue checks pass before the app builds. **Vercel** serves the frontend, with Supabase providing the backend services.
+
+## Current limits
+
+Desktop is the current focus. There’s no durable offline queue or resumable practice yet. Mobile polish and spaced repetition are possible next steps.

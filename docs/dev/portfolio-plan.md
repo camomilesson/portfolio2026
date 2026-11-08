@@ -21,13 +21,13 @@ Primary audience: potential employers.
 
 ## Visual direction
 
-The initial warm editorial design is preserved on `main`. The alternative on
-`design/swiss-cobalt` uses Swiss-inspired typography with a bolder contemporary
+The initial warm editorial design is preserved in commit `3fc4721`. The accepted
+redesign from `design/swiss-cobalt` uses Swiss-inspired typography with a bolder contemporary
 layout: white and cool gray, near-black text, cobalt accents, strong sans-serif
 headings, numbered projects, and larger project imagery. Project visuals retain
 their own colors. No italic serif headings or decorative motion.
 
-The current branch is a design alternative for review, not a merged replacement.
+Andrei approved this direction for merging into `main` on 2026-11-08.
 
 ## Technical direction
 
@@ -119,7 +119,8 @@ Conjugadora is the first case study. Its working content draft is in
 ## Current state
 
 The first local Astro build is implemented: homepage, all-projects index, and five
-project pages. Conjugadora has the first developed case study; the other four have
-initial overviews. Shared layouts, typed Markdown content, responsive CSS, local
+project pages. Conjugadora and Hic Sunt Dracones have developed case studies; the other three
+have initial overviews. Optional project logos and portrait screenshot layouts
+are supported. Shared layouts, typed Markdown content, responsive CSS, local
 fonts, and project ordering are in place. No deployment has been made. Remaining
 content and launch work is tracked in `docs/dev/launch-checklist.md`.

@@ -1,7 +1,7 @@
 # First-build review and launch work
 
 The first local version includes seven generated static pages: home, all projects,
-and five project pages. Conjugadora has the first developed case study; the other
+and five project pages. Conjugadora and Hic Sunt Dracones have developed case studies; the other
 pages contain factual overviews pending personal context and review.
 
 Before launch:
@@ -12,6 +12,9 @@ Before launch:
   preferences, and history. The Settings export excludes the account panel.
 - Optional: add an in-session practice screenshot showing an actual question.
 - Conjugadora live URL confirmed by Andrei: https://conjugadora.vercel.app.
+- Hic Sunt Dracones: solo contribution and unpublished tester use confirmed;
+  four supplied phone screenshots and repository logo integrated.
+- Optional project logos are supported; Conjugadora also has its supplied logo.
 - Confirm personal contributions and outcomes for the remaining case studies.
 - Provide a contact email and/or LinkedIn; GitHub is the current working contact link.
 - Decide whether to provide a CV and public Android beta download.
