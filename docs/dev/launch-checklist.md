@@ -23,7 +23,8 @@ Before launch:
   exported from recorded notebook tables, with cohort/run distinctions labelled.
 - Email and LinkedIn supplied by Andrei and added beside GitHub in the contact
   section and shared footer.
-- Decide whether to provide a CV and public Android beta download.
+- Approved November 2026 CV added as a PDF download in Contact and the shared footer.
+- Decide whether to provide a public Android beta download.
 - Vercel address confirmed: https://andrei-romashkov.vercel.app/. Canonical URLs,
   a shared 1200×630 social preview, robots.txt, and a generated sitemap configured.
 - Review final media performance and accessibility at desktop and phone sizes.
