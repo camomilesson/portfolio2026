@@ -313,7 +313,7 @@ h2 { font-size: clamp(34px, 4vw, 52px); margin-bottom: 0; }
 .showcase-caption .eyebrow { display: block; font-size: 9px; margin-bottom: 5px; }
 .showcase-caption h2 { font-size: 25px; letter-spacing: -.04em; }
 .showcase-arrow { font-size: 27px; }
-.showcase-controls { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 15px; }
+.showcase-controls { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding-top: 15px; }
 .showcase-controls[hidden] { display: none; }
 .showcase-dots { display: flex; gap: 8px; }
 .showcase-controls button { font-family: inherit; cursor: pointer; color: var(--muted); background: none; border: 0; padding: 8px; }

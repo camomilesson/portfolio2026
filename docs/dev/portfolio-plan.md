@@ -36,8 +36,8 @@ Andrei approved this direction for merging into `main` on 2026-11-08.
 - Markdown case studies in a typed Astro content collection.
 - Custom CSS and reusable layouts/components.
 - Static pages with standard navigation, media, and links. The approved homepage
-  showcase uses a small browser script to crossfade between Conjugadora, Dracones,
-  and Cats every six seconds, with manual selection and pause/play controls.
+  showcase uses a small browser script to crossfade between all five featured projects in their agreed order
+  every six seconds, with manual selection and pause/play controls.
   Hover, keyboard focus, and background tabs suspend rotation; reduced-motion
   preferences start it paused. Without JavaScript the first preview stays usable.
   React islands, filters, interactive galleries, and playable app demos remain deferred.

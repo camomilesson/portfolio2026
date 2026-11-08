@@ -14,7 +14,7 @@ const projects = (await getCollection('projects', ({data}) => data.featured)).so
       <p>I’m Andrei. I build web applications, mobile experiences, and AI-powered tools.</p>
       <a class="text-link" href="#work">Explore my work <span aria-hidden="true">↓</span></a>
     </div>
-    <HeroShowcase projects={projects.filter(p => ['conjugadora', 'hic-sunt-dracones', '2048-cats'].includes(p.id))} />
+    <HeroShowcase projects={projects} />
   </div>
 </section>
 <section id="work" class="work wrap"><div class="section-heading"><div><p class="eyebrow">A few things I’ve built</p><h2>Selected work<span class="count"> / {String(projects.length).padStart(2, '0')}</span></h2></div><a class="text-link" href="/projects/">All projects ↗</a></div><div class="project-grid">{projects.map((p,i) => <ProjectCard project={p} index={i} />)}</div></section>
