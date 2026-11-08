@@ -1,0 +1,14 @@
+---
+import '../styles/global.css';
+interface Props { title?: string; description?: string }
+const { title = 'Andrei Romashkov — Software Developer', description = 'I build web applications, mobile experiences, and AI-powered tools. Explore selected projects by Andrei Romashkov.' } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width" /><meta name="description" content={description} /><meta name="theme-color" content="#f7f6f2" /><meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:type" content="website" /><title>{title}</title><link rel="icon" href="/favicon.svg" type="image/svg+xml" /></head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header wrap"><a class="wordmark" href="/" aria-label="Andrei Romashkov, home">Andrei Romashkov<span class="dot">.</span></a><nav aria-label="Main navigation"><a href="/projects/" aria-current={Astro.url.pathname.startsWith('/projects') ? 'page' : undefined}>Work</a><a href="/#about">About</a><a href="/#contact">Contact <span aria-hidden="true">↗</span></a></nav></header>
+<main id="main"><slot /></main>
+<footer class="wrap footer"><span>© {new Date().getFullYear()} Andrei Romashkov</span><span>Built with care. And Astro.</span><a href="https://github.com/camomilesson">GitHub ↗</a></footer>
+</body></html>

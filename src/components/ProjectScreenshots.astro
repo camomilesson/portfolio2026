@@ -1,0 +1,41 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  screenshots: CollectionEntry<'projects'>['data']['screenshots'];
+}
+
+const { screenshots } = Astro.props;
+---
+
+{screenshots.length > 0 && (
+  <section class="case-gallery wrap" aria-labelledby="screenshots-heading">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Inside the product</p>
+        <h2 id="screenshots-heading">A closer look.</h2>
+      </div>
+    </div>
+    {screenshots.map((shot, index) => (
+      <figure class="product-shot">
+        <figcaption>
+          <span class="project-number">{String(index + 1).padStart(2, '0')}</span>
+          <div>
+            <h3>{shot.title}</h3>
+            <p>{shot.caption}</p>
+          </div>
+        </figcaption>
+        <div class="shot-frame">
+          <img
+            src={shot.src}
+            alt={shot.alt}
+            width={shot.width}
+            height={shot.height}
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </figure>
+    ))}
+  </section>
+)}
