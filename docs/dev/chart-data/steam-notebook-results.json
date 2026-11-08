@@ -1,0 +1,29 @@
+{
+  "provenance": "Recorded outputs from the Steam Price Modeling notebooks; not newly trained results.",
+  "comparison": {
+    "source": "03_modeling.ipynb, cells 31 and 40",
+    "scope": "review_count >= 10",
+    "test_games": 9828,
+    "models": ["Median baseline", "Ridge", "KNN (k=25)", "XGBoost"],
+    "mae_dollars": [6.329, 4.911, 4.813, 4.587]
+  },
+  "selection": {
+    "source": "01_eda.ipynb cell 27; 02_feature_eng.ipynb cells 6–7; 03_modeling.ipynb cell 27",
+    "raw_games": 122611,
+    "free_games": 26206,
+    "invalid_discount_games": 2,
+    "above_price_limit": 341,
+    "valid_paid_games": 96062,
+    "selected_games": 49139
+  },
+  "price_bands": {
+    "source": "03_modeling.ipynb cell 24",
+    "scope": "full valid-price dataset, not the selected review-count scope",
+    "test_games": 19213,
+    "bands": ["$0.49–2.99", "$3–4.99", "$5–9.99", "$10–19.99", "$20–49.99", "$50–99.99"],
+    "counts": [6567, 3834, 4641, 3123, 921, 127],
+    "median_mae": [3.22, 0.41, 3.29, 10.71, 26.92, 58.07],
+    "ridge_mae": [2.66, 1.71, 3.24, 7.71, 19.18, 46.12],
+    "knn_mae": [2.50, 1.88, 3.32, 7.32, 17.37, 38.83]
+  }
+}

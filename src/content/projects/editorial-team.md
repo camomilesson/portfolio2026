@@ -1,5 +1,5 @@
 ---
-title: "Editorial Team v2"
+title: "Editorial Team"
 summary: "A conversational AI assistant for drafting, reviewing, and revising your writing."
 category: "AI application"
 technologies: ["Python", "LangChain", "LangGraph", "Gemini", "SQLite", "MLflow"]
@@ -37,7 +37,7 @@ draft: false
 
 ## The project
 
-Editorial Team v2 is a Telegram assistant that writes, reviews, and revises drafts through conversation. I was the team lead on this project for the Agentic AI Systems course at Harbour.Space.
+Editorial Team is a Telegram assistant that writes, reviews, and revises drafts through conversation. I was the team lead on this project for the Agentic AI Systems course at Harbour.Space.
 
 The most interesting challenge was moving from a custom orchestration harness to LangChain and LangGraph in 24 hours, while keeping the writing workflow working.
 

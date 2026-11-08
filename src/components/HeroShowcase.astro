@@ -1,0 +1,76 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props { projects: CollectionEntry<'projects'>[] }
+const { projects } = Astro.props;
+---
+<section class="hero-showcase" aria-label="Selected project previews" aria-roledescription="carousel" data-showcase>
+  <div class="showcase-stage">
+    {projects.map((project, index) => (
+      <div class:list={['showcase-slide', project.data.accent, { 'is-active': index === 0 }]}
+        role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${projects.length}`}
+        inert={index !== 0} aria-hidden={index !== 0 ? 'true' : undefined} data-slide>
+        <a href={`/projects/${project.id}/`} class="showcase-project" aria-label={`Explore ${project.data.title}`}>
+          <div class:list={['showcase-media', { 'showcase-phones': project.data.imageLayout === 'portrait' }]}>
+            {project.data.imageLayout === 'portrait' ? (
+              <>
+                <img src={project.data.image} alt={project.data.imageAlt ?? project.data.title} width="576" height="1280" decoding="async" />
+                {project.data.screenshots[2] && <img class="showcase-companion" src={project.data.screenshots[2].src} alt={project.data.screenshots[2].alt} width="576" height="1280" decoding="async" />}
+              </>
+            ) : <img src={project.data.image} alt={project.data.imageAlt ?? project.data.title} width="1800" height="1145" decoding="async" />}
+          </div>
+          <div class="showcase-caption"><div><span class="eyebrow">{project.data.category}</span><h2>{project.data.title}</h2></div><span class="showcase-arrow" aria-hidden="true">↗</span></div>
+        </a>
+      </div>
+    ))}
+  </div>
+  <div class="showcase-controls" hidden data-controls>
+    <div class="showcase-dots" role="group" aria-label="Choose a project">
+      {projects.map((project,index) => <button type="button" aria-label={`Show ${project.data.title}`} aria-pressed={index === 0} data-dot><span>{String(index + 1).padStart(2,'0')}</span></button>)}
+    </div>
+    <button type="button" class="showcase-toggle" data-toggle>Pause slideshow</button>
+  </div>
+</section>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-showcase]');
+  if (root) {
+    const slides = [...root.querySelectorAll<HTMLElement>('[data-slide]')];
+    const dots = [...root.querySelectorAll<HTMLButtonElement>('[data-dot]')];
+    const toggle = root.querySelector<HTMLButtonElement>('[data-toggle]')!;
+    const controls = root.querySelector<HTMLElement>('[data-controls]')!;
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let active = 0;
+    let paused = motion.matches;
+    let hovering = false;
+    let timer: ReturnType<typeof setInterval> | undefined;
+
+    function show(index: number) {
+      active = index;
+      slides.forEach((slide, i) => {
+        const current = i === active;
+        slide.classList.toggle('is-active', current);
+        slide.inert = !current;
+        if (current) slide.removeAttribute('aria-hidden');
+        else slide.setAttribute('aria-hidden', 'true');
+        dots[i].setAttribute('aria-pressed', String(current));
+      });
+    }
+    function schedule() {
+      clearInterval(timer);
+      toggle.textContent = paused ? 'Play slideshow' : 'Pause slideshow';
+      if (paused || hovering || root!.contains(document.activeElement) || document.hidden) return;
+      timer = setInterval(() => show((active + 1) % slides.length), 6000);
+    }
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { show(i); schedule(); }));
+    toggle.addEventListener('click', () => { paused = !paused; schedule(); });
+    root.addEventListener('mouseenter', () => { hovering = true; schedule(); });
+    root.addEventListener('mouseleave', () => { hovering = false; schedule(); });
+    root.addEventListener('focusin', schedule);
+    root.addEventListener('focusout', () => { requestAnimationFrame(schedule); });
+    document.addEventListener('visibilitychange', schedule);
+    motion.addEventListener('change', () => { paused = motion.matches; schedule(); });
+    window.addEventListener('pagehide', () => clearInterval(timer), { once: true });
+    controls.hidden = false;
+    schedule();
+  }
+</script>

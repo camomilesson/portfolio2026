@@ -1,4 +1,4 @@
-# Editorial Team v2 — case-study notes
+# Editorial Team — case-study notes
 
 Status: first developed case study integrated locally, 2026-11-08.
 

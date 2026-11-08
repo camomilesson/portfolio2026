@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
-<title id="title">Editorial Team v2 architecture</title>
+<title id="title">Editorial Team architecture</title>
 <desc id="desc">Telegram messages pass through an allowlist and bounded queue to a LangGraph Coordinator. It routes ordinary chat to Talker, writing to Writer and Critic, and revisions to Editor. Conversation-scoped search and draft-loading tools access a SQLite artifact corpus through hybrid retrieval. A separate SQLite checkpointer preserves the conversation and active draft.</desc>
 <defs>
 <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#8996b0"/></marker>
@@ -8,7 +8,7 @@ text{font-family:Arial,sans-serif;fill:#17243c}.label{font-size:12px;letter-spac
 </style>
 </defs>
 <rect width="1200" height="760" fill="#eef2fa"/>
-<text x="48" y="43" class="label">EDITORIAL TEAM V2 / SYSTEM ARCHITECTURE</text>
+<text x="48" y="43" class="label">EDITORIAL TEAM / SYSTEM ARCHITECTURE</text>
 <text x="48" y="94" class="heading">One conversation. A coordinated team.</text>
 <text x="48" y="124" class="sub">Python · LangChain + LangGraph · Gemini · SQLite</text>
 <rect x="48" y="164" width="1104" height="408" rx="10" fill="#e4ebf8"/>

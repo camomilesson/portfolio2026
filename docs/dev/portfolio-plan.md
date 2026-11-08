@@ -25,7 +25,8 @@ The initial warm editorial design is preserved in commit `3fc4721`. The accepted
 redesign from `design/swiss-cobalt` uses Swiss-inspired typography with a bolder contemporary
 layout: white and cool gray, near-black text, cobalt accents, strong sans-serif
 headings, numbered projects, and larger project imagery. Project visuals retain
-their own colors. No italic serif headings or decorative motion.
+their own colors. No italic serif headings. A restrained rotating project showcase is approved
+for the homepage hero.
 
 Andrei approved this direction for merging into `main` on 2026-11-08.
 
@@ -34,9 +35,12 @@ Andrei approved this direction for merging into `main` on 2026-11-08.
 - Astro + TypeScript.
 - Markdown case studies in a typed Astro content collection.
 - Custom CSS and reusable layouts/components.
-- First version is a static portfolio with standard navigation, media, and links.
-  Defer optional interactive features, React islands, filters, custom galleries,
-  and playable or embedded app demos. Revisit after the portfolio is built.
+- Static pages with standard navigation, media, and links. The approved homepage
+  showcase uses a small browser script to crossfade between Conjugadora, Dracones,
+  and Cats every six seconds, with manual selection and pause/play controls.
+  Hover, keyboard focus, and background tabs suspend rotation; reduced-motion
+  preferences start it paused. Without JavaScript the first preview stays usable.
+  React islands, filters, interactive galleries, and playable app demos remain deferred.
 - A dedicated GitHub repository and Vercel hosting.
 - Static output initially; no backend or CMS required for the agreed scope.
 - Host the 2048 Android beta download in a GitHub Release and link to it.
@@ -56,14 +60,14 @@ These five projects form the initial selection, in the agreed display order:
 
 1. Conjugadora — web product development and Spanish conjugation practice.
 2. Hic Sunt Dracones — Android exploration app with location tracking and fog of war.
-3. Editorial Team v2 — conversational editorial assistant with orchestration,
+3. Editorial Team — conversational editorial assistant with orchestration,
    persistence, retrieval, and evaluations.
 4. 2048 Cats — Unity/C# Android puzzle game with power-ups and a cat-themed identity.
 5. Steam Price Modeling — end-to-end data science and ML workflow with API serving.
 
 University Curriculum Scheduler and Breakout50 are candidates for a smaller
 additional-projects section. The earlier Editorial Team agent can provide context
-within the Editorial Team v2 story. Neither is committed launch scope yet.
+within the Editorial Team story. Neither is committed launch scope yet.
 
 ## Delivery phases
 
@@ -119,8 +123,8 @@ Conjugadora is the first case study. Its working content draft is in
 ## Current state
 
 The first local Astro build is implemented: homepage, all-projects index, and five
-project pages. Conjugadora, Hic Sunt Dracones, and Editorial Team v2 have developed case studies;
-the remaining two have initial overviews. Optional project logos and portrait screenshot layouts
+project pages. All five featured projects have developed case studies, with project media
+or technical charts integrated. Optional project logos and portrait screenshot layouts
 are supported. Shared layouts, typed Markdown content, responsive CSS, local
 fonts, and project ordering are in place. No deployment has been made. Remaining
 content and launch work is tracked in `docs/dev/launch-checklist.md`.
