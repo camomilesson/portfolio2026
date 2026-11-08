@@ -4,4 +4,4 @@ import Layout from '../../layouts/Layout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 const projects = (await getCollection('projects')).sort((a,b) => a.data.order-b.data.order);
 ---
-<Layout title="Projects — Andrei Romashkov"><section class="page-intro wrap"><p class="eyebrow">The collection</p><h1>Things I’ve <span class="serif">built.</span></h1><p>Web applications, mobile experiments, AI systems, and a few cats.</p></section><section class="wrap project-grid index-grid" aria-label="All projects">{projects.map((p,i) => <ProjectCard project={p} index={i} />)}</section></Layout>
+<Layout title="Projects — Andrei Romashkov"><section class="page-intro wrap"><p class="eyebrow">The collection</p><h1>Things I’ve <span class="accent-text">built.</span></h1><p>Web applications, mobile experiments, AI systems, and a few cats.</p></section><section class="wrap project-grid index-grid" aria-label="All projects">{projects.map((p,i) => <ProjectCard project={p} index={i} />)}</section></Layout>

@@ -21,9 +21,13 @@ Primary audience: potential employers.
 
 ## Visual direction
 
-A clean editorial layout with strong typography and large project visuals.
-Give each project room for its own personality within a consistent site design.
-Specific fonts, colors, and layout details remain to be chosen.
+The initial warm editorial design is preserved on `main`. The alternative on
+`design/swiss-cobalt` uses Swiss-inspired typography with a bolder contemporary
+layout: white and cool gray, near-black text, cobalt accents, strong sans-serif
+headings, numbered projects, and larger project imagery. Project visuals retain
+their own colors. No italic serif headings or decorative motion.
+
+The current branch is a design alternative for review, not a merged replacement.
 
 ## Technical direction
 
