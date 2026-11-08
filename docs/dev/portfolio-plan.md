@@ -119,8 +119,8 @@ Conjugadora is the first case study. Its working content draft is in
 ## Current state
 
 The first local Astro build is implemented: homepage, all-projects index, and five
-project pages. Conjugadora and Hic Sunt Dracones have developed case studies; the other three
-have initial overviews. Optional project logos and portrait screenshot layouts
+project pages. Conjugadora, Hic Sunt Dracones, and Editorial Team v2 have developed case studies;
+the remaining two have initial overviews. Optional project logos and portrait screenshot layouts
 are supported. Shared layouts, typed Markdown content, responsive CSS, local
 fonts, and project ordering are in place. No deployment has been made. Remaining
 content and launch work is tracked in `docs/dev/launch-checklist.md`.

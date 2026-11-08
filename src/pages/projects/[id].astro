@@ -33,6 +33,8 @@ const {Content} = await render(project);
     <div class="wrap case-visual"><ProjectVisual project={project} hero /></div>
     <div class="case-body wrap">
       <aside>
+        {project.data.role && <div class="project-credit"><p class="eyebrow">Role</p><p>{project.data.role}</p></div>}
+        {project.data.context && <div class="project-credit"><p class="eyebrow">Context</p><p>{project.data.context}</p></div>}
         <p class="eyebrow">Built with</p>
         <ul class="stack">{project.data.technologies.map(t => <li>{t}</li>)}</ul>
         {project.data.draft && <p class="draft-note">Project overview. Full case study to follow.</p>}

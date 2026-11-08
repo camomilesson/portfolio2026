@@ -18,6 +18,7 @@ const projects = defineCollection({
       width: z.number(), height: z.number(),
       layout: z.enum(['landscape', 'portrait']).default('landscape'),
     })).default([]),
+    role: z.string().optional(), context: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });

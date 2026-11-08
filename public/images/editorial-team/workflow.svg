@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+<title id="title">Editorial Team v2 workflow</title>
+<desc id="desc">Telegram enters the Coordinator. Chat goes to Talker. Writing goes to Writer then Critic; a revision goes to Editor. Retrieval searches and loads stored drafts. SQLite persists state and artifacts.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#65718a"/></marker></defs>
+<rect width="900" height="420" fill="#f1f3f7"/>
+<g fill="none" stroke="#65718a" stroke-width="1.6" marker-end="url(#arrow)">
+<path d="M164 153H218"/><path d="M394 153H458"/><path d="M606 153H663"/>
+<path d="M306 126V67H458"/><path d="M306 180V257H458"/><path d="M739 180V230"/>
+<path d="M532 284V327H306V180" stroke-dasharray="5 4"/>
+</g>
+<g font-family="Arial,sans-serif" font-size="18" fill="#15171c" text-anchor="middle">
+<rect x="34" y="126" width="130" height="54" rx="3" fill="white" stroke="#dce0e7"/><text x="99" y="160">Telegram</text>
+<rect x="218" y="126" width="176" height="54" rx="3" fill="#2449e8"/><text x="306" y="160" fill="white">Coordinator</text>
+<rect x="458" y="126" width="148" height="54" rx="3" fill="white" stroke="#dce0e7"/><text x="532" y="160">Writer</text>
+<rect x="663" y="126" width="152" height="54" rx="3" fill="white" stroke="#dce0e7"/><text x="739" y="160">Critic</text>
+<rect x="458" y="40" width="148" height="54" rx="3" fill="white" stroke="#dce0e7"/><text x="532" y="74">Talker</text>
+<rect x="458" y="230" width="148" height="54" rx="3" fill="white" stroke="#dce0e7"/><text x="532" y="264">Search / load</text>
+<rect x="663" y="230" width="152" height="54" rx="3" fill="white" stroke="#dce0e7"/><text x="739" y="264">Editor</text>
+</g>
+<g font-family="Arial,sans-serif" font-size="13" fill="#606672">
+<text x="328" y="58">Chat</text><text x="407" y="140">Write</text><text x="322" y="245">Retrieve</text><text x="752" y="210">REVISE</text><text x="679" y="110">PASS → working draft</text>
+<text x="34" y="378">SQLite checkpoints: conversation + active draft</text><text x="478" y="378">SQLite artifacts: completed writing + search corpus</text>
+</g>
+</svg>

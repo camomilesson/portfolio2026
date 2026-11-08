@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<title id="title">Editorial Team v2 architecture</title>
+<desc id="desc">Telegram messages pass through an allowlist and bounded queue to a LangGraph Coordinator. It routes ordinary chat to Talker, writing to Writer and Critic, and revisions to Editor. Conversation-scoped search and draft-loading tools access a SQLite artifact corpus through hybrid retrieval. A separate SQLite checkpointer preserves the conversation and active draft.</desc>
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#8996b0"/></marker>
+<style>
+text{font-family:Arial,sans-serif;fill:#17243c}.label{font-size:12px;letter-spacing:1.7px;fill:#596b8d}.heading{font-size:38px;font-weight:700;letter-spacing:-1px}.name{font-size:21px;font-weight:600}.sub{font-size:14px;fill:#596b8d}.edge{fill:none;stroke:#8996b0;stroke-width:2;marker-end:url(#a)}.node{fill:white;stroke:#cfdaeb;stroke-width:1.5}.small{font-size:12px;fill:#596b8d}
+</style>
+</defs>
+<rect width="1200" height="760" fill="#eef2fa"/>
+<text x="48" y="43" class="label">EDITORIAL TEAM V2 / SYSTEM ARCHITECTURE</text>
+<text x="48" y="94" class="heading">One conversation. A coordinated team.</text>
+<text x="48" y="124" class="sub">Python · LangChain + LangGraph · Gemini · SQLite</text>
+<rect x="48" y="164" width="1104" height="408" rx="10" fill="#e4ebf8"/>
+<text x="72" y="195" class="label">CONVERSATION &amp; EDITORIAL WORKFLOW</text>
+<g class="edge">
+<path d="M232 253H272"/><path d="M464 253H520"/><path d="M748 253H942"/>
+<path d="M634 290V366"/><path d="M748 403H800"/><path d="M896 440V471H942"/>
+</g>
+<rect class="node" x="72" y="216" width="160" height="74" rx="5"/>
+<text x="92" y="247" class="name">Telegram</text><text x="92" y="270" class="sub">User messages</text>
+<rect class="node" x="272" y="216" width="192" height="74" rx="5"/>
+<text x="292" y="247" class="name">Runtime queue</text><text x="292" y="270" class="sub">Allowlist · single worker</text>
+<rect x="520" y="216" width="228" height="74" rx="5" fill="#2449e8"/>
+<text x="540" y="247" class="name" style="fill:white">Coordinator</text><text x="540" y="270" class="sub" style="fill:#e0e7ff">Routes turns &amp; selects tools</text>
+<rect class="node" x="942" y="216" width="186" height="74" rx="5"/>
+<text x="962" y="247" class="name">Talker</text><text x="962" y="270" class="sub">Ordinary conversation</text>
+<text x="815" y="239" class="small">CHAT</text><text x="649" y="333" class="small">WRITE / REVISE</text>
+<rect class="node" x="520" y="366" width="228" height="74" rx="5"/>
+<text x="540" y="397" class="name">Writer</text><text x="540" y="420" class="sub">Draft or rewrite</text>
+<rect class="node" x="800" y="366" width="186" height="74" rx="5"/>
+<text x="820" y="397" class="name">Critic</text><text x="820" y="420" class="sub">Structured review</text>
+<rect class="node" x="942" y="471" width="186" height="74" rx="5"/>
+<text x="962" y="502" class="name">Editor</text><text x="962" y="525" class="sub">Apply review feedback</text>
+<text x="803" y="494" class="small">REVISE</text>
+<text x="520" y="513" class="sub">PASS → finalize working draft</text>
+<text x="520" y="541" class="small">Run identity checks reject stale or mismatched outputs.</text>
+<path class="edge" d="M520 280H490V320H268V342"/>
+<path class="edge" d="M268 440V464"/>
+<rect class="node" x="72" y="342" width="392" height="98" rx="5"/>
+<text x="92" y="375" class="name">Scoped retrieval tools</text>
+<text x="92" y="402" class="sub">search_corpus → get_draft</text>
+<text x="92" y="424" class="small">Load earlier writing as the active draft</text>
+<rect class="node" x="72" y="464" width="392" height="81" rx="5"/>
+<text x="92" y="495" class="name">Hybrid retrieval</text>
+<text x="92" y="520" class="sub">Embeddings + BM25 → RRF · optional reranker</text>
+<path class="edge" d="M268 545V610" stroke-dasharray="5 5"/>
+<path class="edge" d="M634 290V320H1164V594H884V610" stroke-dasharray="5 5"/>
+<rect class="node" x="48" y="610" width="524" height="100" rx="5"/>
+<text x="72" y="644" class="name">SQLite artifact corpus</text>
+<text x="72" y="671" class="sub">Immutable completed writing · paragraph-aware chunks</text>
+<text x="72" y="692" class="small">Conversation and date filters apply before ranking</text>
+<rect class="node" x="600" y="610" width="552" height="100" rx="5"/>
+<text x="624" y="644" class="name">SQLite checkpoints</text>
+<text x="624" y="671" class="sub">Conversation history + one active working draft</text>
+<text x="624" y="692" class="small">Durable state across application restarts</text>
+<text x="48" y="741" class="small">Simplified from the repository architecture diagram. Responses return through Telegram.</text>
+</svg>

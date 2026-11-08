@@ -1,8 +1,8 @@
 # First-build review and launch work
 
 The first local version includes seven generated static pages: home, all projects,
-and five project pages. Conjugadora and Hic Sunt Dracones have developed case studies; the other
-pages contain factual overviews pending personal context and review.
+and five project pages. Conjugadora, Hic Sunt Dracones, and Editorial Team v2 have developed case studies.
+2048 Cats and Steam Price Modeling have initial overviews pending further review.
 
 Before launch:
 
@@ -15,6 +15,9 @@ Before launch:
 - Hic Sunt Dracones: solo contribution and unpublished tester use confirmed;
   four supplied phone screenshots and repository logo integrated.
 - Optional project logos are supported; Conjugadora also has its supplied logo.
+- Editorial Team v2: team-lead role, course context, and inactive service status
+  confirmed. Three Telegram demonstration captures and a simplified workflow
+  diagram are integrated. Teammate naming/link permission remains pending.
 - Confirm personal contributions and outcomes for the remaining case studies.
 - Provide a contact email and/or LinkedIn; GitHub is the current working contact link.
 - Decide whether to provide a CV and public Android beta download.

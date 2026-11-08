@@ -37,7 +37,8 @@ set `layout: portrait` to display phone captures in a two-column gallery.
 
 An optional `logo` object with `src` and `alt` displays a project logo beside its
 title in listing cards and the project header. Omit it for projects without a logo.
-An optional `live` field adds a website link. Omit unavailable links.
+Optional `role` and `context` fields add contribution and project context to the
+case-study sidebar. An optional `live` field adds a website link. Omit unavailable links.
 
 ## Structure
 
