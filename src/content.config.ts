@@ -19,6 +19,10 @@ const projects = defineCollection({
       layout: z.enum(['landscape', 'portrait']).default('landscape'),
     })).default([]),
     role: z.string().optional(), context: z.string().optional(),
+    team: z.array(z.object({
+      name: z.string(), role: z.string().optional(),
+      github: z.url().optional(), linkedin: z.url().optional(),
+    })).default([]),
     draft: z.boolean().default(false),
   }),
 });

@@ -10,6 +10,12 @@ accent: "blue"
 visual: "A second pair\nof eyes."
 role: "Team lead · Team project"
 context: "Agentic AI Systems · Harbour.Space"
+team:
+  - name: "Andrei Romashkov"
+    role: "Team lead"
+  - name: "Nina Perišić"
+    github: "https://github.com/ninaperii"
+    linkedin: "https://www.linkedin.com/in/nina-peri%C5%A1i%C4%87-793b98316/"
 image: "/images/editorial-team/architecture.svg"
 imageAlt: "Editorial Team architecture: Telegram queue, LangGraph Coordinator, Writer–Critic–Editor workflow, hybrid retrieval tools, and SQLite persistence."
 imageKind: "screenshot"
@@ -37,7 +43,7 @@ draft: false
 
 ## The project
 
-Editorial Team is a Telegram assistant that writes, reviews, and revises drafts through conversation. I was the team lead on this project for the Agentic AI Systems course at Harbour.Space.
+Editorial Team is a Telegram assistant that writes, reviews, and revises drafts through conversation. I led this two-person project for the Agentic AI Systems course at Harbour.Space.
 
 The most interesting challenge was moving from a custom orchestration harness to LangChain and LangGraph in 24 hours, while keeping the writing workflow working.
 

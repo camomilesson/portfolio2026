@@ -35,6 +35,7 @@ const {Content} = await render(project);
       <aside>
         {project.data.role && <div class="project-credit"><p class="eyebrow">Role</p><p>{project.data.role}</p></div>}
         {project.data.context && <div class="project-credit"><p class="eyebrow">Context</p><p>{project.data.context}</p></div>}
+        {project.data.team.length > 0 && <div class="project-credit"><p class="eyebrow">Team</p><ul class="team-credits">{project.data.team.map(member => <li><span>{member.name}{member.role && ` — ${member.role}`}</span>{(member.github || member.linkedin) && <span class="team-links">{member.github && <a href={member.github}>GitHub ↗</a>}{member.github && member.linkedin && ' · '}{member.linkedin && <a href={member.linkedin}>LinkedIn ↗</a>}</span>}</li>)}</ul></div>}
         <p class="eyebrow">Built with</p>
         <ul class="stack">{project.data.technologies.map(t => <li>{t}</li>)}</ul>
         {project.data.draft && <p class="draft-note">Project overview. Full case study to follow.</p>}
