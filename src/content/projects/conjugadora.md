@@ -17,6 +17,18 @@ logo:
   src: "/images/conjugadora/logo.webp"
   alt: "Conjugadora logo"
 screenshots:
+  - src: "/images/conjugadora/multiple-choice.webp"
+    alt: "Multiple-choice practice with four conjugation options and an explanation of the conditional perfect tense."
+    title: "Recognise the right form"
+    caption: "Multiple choice builds recognition, with tense explanations close at hand when you need a reminder."
+    width: 1800
+    height: 1141
+  - src: "/images/conjugadora/typing.webp"
+    alt: "Typing practice with an answer field, Spanish character buttons, and an explanation of the future perfect tense."
+    title: "Recall it yourself"
+    caption: "Typing asks you to produce the answer yourself. Spanish character buttons and tense hints keep help within reach."
+    width: 1800
+    height: 1141
   - src: "/images/conjugadora/progress.webp"
     alt: "Progress table showing accuracy by Spanish verb and tense, with search, mode filters, and column controls."
     title: "See what needs another look"

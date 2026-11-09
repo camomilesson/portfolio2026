@@ -1,0 +1,64 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props { project: CollectionEntry<'projects'> }
+const { project: {data: p} } = Astro.props;
+const images = [
+  ...(p.image ? [{src:p.image, alt:p.imageAlt ?? p.title, title:'Overview'}] : []),
+  ...p.screenshots,
+].filter((image, index, all) => all.findIndex(other => other.src === image.src) === index);
+---
+<section class="project-gallery" aria-label={`${p.title} image gallery`}>
+  <div class="gallery-track" tabindex="0" aria-label="Project images; use left and right arrow keys to browse">
+    {images.map((image, i) => <figure class="gallery-slide" aria-label={`${i + 1} of ${images.length}`}><a href={image.src} target="_blank" rel="noopener" aria-label={`Open full-size image: ${image.title}`}><img src={image.src} alt={image.alt} loading={i === 0 ? 'eager' : 'lazy'} decoding="async" /></a></figure>)}
+  </div>
+  <div class="gallery-toolbar" hidden>
+    <button type="button" data-direction="-1" aria-label="Previous image">←</button>
+    <p class="gallery-status" aria-live="polite" aria-atomic="true">1 / {images.length} · {images[0]?.title}</p>
+    <button type="button" data-direction="1" aria-label="Next image">→</button>
+  </div>
+  <div class="gallery-thumbnails" aria-label="Choose a project image" hidden>
+    {images.map((image, i) => <button type="button" data-index={i} aria-label={`Show ${image.title}`} aria-pressed={i === 0 ? 'true' : 'false'} data-title={image.title}><img src={image.src} alt="" loading="lazy" /><span>{image.title}</span></button>)}
+  </div>
+</section>
+<script>
+  document.querySelectorAll<HTMLElement>('.project-gallery').forEach(gallery => {
+    const track = gallery.querySelector<HTMLElement>('.gallery-track')!;
+    const slides = [...gallery.querySelectorAll<HTMLElement>('.gallery-slide')];
+    const thumbnails = [...gallery.querySelectorAll<HTMLButtonElement>('[data-index]')];
+    const status = gallery.querySelector<HTMLElement>('.gallery-status')!;
+    let current = 0;
+    const update = (index: number) => {
+      current = index;
+      thumbnails.forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
+      status.textContent = `${index + 1} / ${slides.length} · ${thumbnails[index].dataset.title}`;
+    };
+    const go = (index: number) => {
+      const next = (index + slides.length) % slides.length;
+      track.scrollTo({left: slides[next].offsetLeft - slides[0].offsetLeft, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
+    };
+    gallery.querySelectorAll<HTMLElement>('.gallery-toolbar, .gallery-thumbnails').forEach(element => element.hidden = false);
+    thumbnails.forEach((button, i) => button.addEventListener('click', () => go(i)));
+    gallery.querySelectorAll<HTMLButtonElement>('[data-direction]').forEach(button => button.addEventListener('click', () => go(current + Number(button.dataset.direction))));
+    track.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') { event.preventDefault(); go(current + (event.key === 'ArrowLeft' ? -1 : 1)); }
+    });
+    track.addEventListener('scroll', () => update(Math.max(0, Math.min(slides.length - 1, Math.round(track.scrollLeft / track.clientWidth)))), {passive:true});
+  });
+</script>
+<style>
+  .gallery-track { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; position:relative; background:var(--surface, #f1f3f6); }
+  .gallery-slide { flex:0 0 100%; min-width:0; margin:0; scroll-snap-align:start; }
+  .gallery-slide a { display:flex; height:clamp(260px, 55vw, 700px); padding:clamp(12px, 3vw, 40px); align-items:center; justify-content:center; }
+  .gallery-slide img { width:100%; height:100%; object-fit:contain; }
+  .gallery-toolbar { display:flex; align-items:center; gap:18px; margin:16px 0; }
+  [hidden] { display:none !important; }
+  button { font:inherit; cursor:pointer; background:white; border:1px solid #dce0e7; color:inherit; }
+  .gallery-toolbar button { width:44px; height:44px; font-size:22px; flex-shrink:0; }
+  .gallery-status { margin:0; flex:1; text-align:center; font-size:13px; }
+  .gallery-thumbnails { display:flex; gap:10px; overflow-x:auto; padding:3px 3px 12px; }
+  .gallery-thumbnails button { flex:0 0 125px; padding:6px; text-align:left; }
+  .gallery-thumbnails img { width:100%; height:65px; object-fit:contain; background:#f1f3f6; }
+  .gallery-thumbnails span { display:block; font-size:11px; line-height:1.4; padding-top:5px; }
+  .gallery-thumbnails [aria-pressed="true"] { border-color:#2449e8; box-shadow:0 0 0 1px #2449e8; }
+  button:focus-visible, .gallery-track:focus-visible { outline:2px solid #2449e8; outline-offset:3px; }
+</style>
